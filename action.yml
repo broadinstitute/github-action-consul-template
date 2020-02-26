@@ -1,0 +1,29 @@
+# action.yml
+name: 'consul-template render'
+description: 'Greet someone and record the time'
+inputs:
+  vault-address:
+    description: 'https address of vault server'
+    required: true
+  vault-token:
+    description: 'token of vault server'
+    required: true
+  environment:
+    description: 'envronment var to set'
+    required: true
+  suffix:
+    description: 'suffix var to set'
+    required: false
+  log-level:
+    description: 'log level of consul-template'
+    required: true
+    default: debug
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.vault-address }}
+    - ${{ inputs.vault-token }}
+    - ${{ inputs.environment }}
+    - ${{ inputs.suffix }}
+    - ${{ inputs.log-level }}
