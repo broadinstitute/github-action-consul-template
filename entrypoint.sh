@@ -10,12 +10,16 @@ export LOG_LEVEL=$5
 export WORKDIR='/github/workspace'
 export PATH=${6:-"environment/${ENVIRONMENT}"}
 
+pwd
 cd ${WORKDIR}
+echo ............
 
 if [ -z "${VAULT_ADDR}" ] && [ -z "${VAULT_TOKEN}" ]
 then
       echo "${VAULT_ADDR} or ${VAULT_TOKEN} is empty"
 else
+      pwd
+      echo ${PATH}
       find ${PATH} -name "*.ctmpl" -print | while read file
       do
         rootname="${file%.ctmpl}"
