@@ -1,6 +1,6 @@
 # action.yml
 name: 'consul-template render'
-description: 'Greet someone and record the time'
+description: 'Simple Github action to render out consul-template files'
 inputs:
   vault-address:
     description: 'https address of vault server'
