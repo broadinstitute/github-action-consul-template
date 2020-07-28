@@ -18,6 +18,9 @@ inputs:
     description: 'log level of consul-template'
     required: true
     default: debug
+  path:
+    description: 'path to tf to render'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -27,3 +30,4 @@ runs:
     - ${{ inputs.environment }}
     - ${{ inputs.suffix }}
     - ${{ inputs.log-level }}
+    - ${{ inputs.path }}
