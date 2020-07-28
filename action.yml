@@ -18,7 +18,7 @@ inputs:
     description: 'log level of consul-template'
     required: true
     default: debug
-  path:
+  env_path:
     description: 'path to tf to render'
     required: false
 runs:
@@ -30,4 +30,4 @@ runs:
     - ${{ inputs.environment }}
     - ${{ inputs.suffix }}
     - ${{ inputs.log-level }}
-    - ${{ inputs.path }}
+    - ${{ inputs.env_path }}

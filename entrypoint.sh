@@ -8,7 +8,7 @@ export ENVIRONMENT=$3
 export SUFFIX=${4:-${ENVIRONMENT}}
 export LOG_LEVEL=$5
 export WORKDIR='/github/workspace'
-export PATH=${6:-"environments/${ENVIRONMENT}"}
+export ENV_PATH=${6:-"environments/${ENVIRONMENT}"}
 
 cd ${WORKDIR}
 
@@ -17,7 +17,7 @@ then
       echo "${VAULT_ADDR} or ${VAULT_TOKEN} is empty"
 else
       printf "Running ctmpl render \n"
-      find ${PATH} -name "*.ctmpl" -print | while read file
+      find ${ENV_PATH} -name "*.ctmpl" -print | while read file
       do
         rootname="${file%.ctmpl}"
         echo "$file -> $rootname"
